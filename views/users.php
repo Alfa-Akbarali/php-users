@@ -5,48 +5,94 @@
     </head>
     <body>
         <style>
-        table {
+        table 
+        {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
+            border-color: #96D4D4;
+            border-radius:10px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            
         }
-        td, th {
-            border: 1px solid #dddddd;
+        td, th 
+        {
+            border: 2px solid;
             text-align: left;
             padding: 8px;
+            border-color: #96D4D4;
+            
+        }
+        /* tr:nth-child(even) {
+            
+        }   */
+        .table-header 
+        {
+            background-color: #ddd;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            
+            
+        }
+        .table-row 
+        {
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            
+        }
+        h1
+        {
+            font-size: 26px;
+            margin: 20px 0;
+            text-align: center;
         }
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }  
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -2px;
+				bottom: -2px;
+				background-color: grey;
+				z-index: -1;
+			}
+		}
+	}
         </style>
-        <h1>HTML table</h1>
+<!---------------------------- Table ---------------------------->
+        <h1>Table</h1>
             <?php
-                
                 require_once __DIR__ . '\..\controller/UserController.php';
-
                 $userController = new controller\UserController();
                 $users = $userController->getAllUsers();
                 echo $users;
             ?>
-        <table >
-            <a href="/create">Create user</a>
-            <br>
-            <a href="/logout">Logout</a>
-            <tr>
+        <table>
+            <tr class="table-header">
                 <th>#ID</th>
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Age</th>
                 <th>Email</th>
+                <th>Edit & delete</th>
             </tr>
+            
             <tr>
             <?php
                     foreach ($users as $user) {
-                        echo '<tr>';
+                        echo '<tr class="table-row">';
                             echo '<td>' . $user['id'] . '</td>';
                             echo '<td>' . $user['firstname'] . '</td>';
-                            echo '<td>' . $user['lastname'] . '</td>';
+                            echo '<td class="last_name";>' . $user['lastname'] . '</td>';
                             echo '<td>' . $user['age'] . '</td>';
                             echo '<td>' . $user['email'] . '</td>';
                             echo '<td> 
@@ -57,11 +103,14 @@
                                 <input type="submit" value="Delete">
                             </form>
                             </td>';
-
-                        echo '</tr>';
+                        echo'</tr>';
                 }
             ?>
         </table>
+
+
+        <a href="/create">Create user </a>
+            <a href="/logout">Logout</a>
     </body>
 </html>
 

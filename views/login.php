@@ -39,7 +39,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     body {
       font-family: 'Open Sans', sans-serif;
-      background-color: #222;
+      background-image: url(https://img.freepik.com/free-vector/gradient-black-backgrounds-with-golden-frames_23-2149150610.jpg?w=1380&t=st=1703152361~exp=1703152961~hmac=0e0ec023e69fdc2c4a1e1273d2fe1183cf4e3f2fc16d7f7693d2fd4c6a891924);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
     }
 
     .container {
@@ -47,6 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       justify-content: center;
       align-items: center;
       height: 100vh;
+     
     }
 
     .form-container {
@@ -55,15 +59,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       padding: 50px;
       background-color: #333;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 40px 15px rgba(201, 234, 62, 0.2);
       color: #fff;
+      
     }
 
     h1 {
       text-align: center;
       margin-bottom: 30px;
       font-size: 36px;
-      color: #b38bff;
+      color: aqua;
+      text-shadow: 2px 2px 15px rgb(20 184 166);
     }
 
     form {
@@ -79,13 +85,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     input {
       padding: 12px;
       border: none;
-      border-radius: 5px;
+      border-radius: 20px;
       margin-bottom: 20px;
       font-size: 16px;
       color: #fff;
       background-color: #555;
+      border:2px solid aqua;
+      border-radius: 20px;
     }
-
     button {
       padding: 10px;
       background-color: #b38bff;
@@ -114,16 +121,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     p {
       text-align: center;
-      margin: 8px;
+      margin: 5px;
+      padding-top: 20px;
     }
-
 
 </style>   
 </head>
 <body>
 <div class="container">
     <div class="form-container" id="login-form">
-      <h1>Login</h1>
+      <h1 class="sign_up">Sign up</h1>
       <form method="post" action="login.php">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>

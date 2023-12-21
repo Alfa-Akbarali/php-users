@@ -1,0 +1,31 @@
+ <table>
+            <!-- <a href="/create">Create user </a>
+            <a href="/logout">Logout</a> -->
+            <tr class="table-header">
+                <th>#ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+            <?php
+                    foreach ($users as $user) {
+                        echo '<tr class="table-row">';
+                            echo '<td>' . $user['id'] . '</td>';
+                            echo '<td>' . $user['firstname'] . '</td>';
+                            echo '<td>' . $user['lastname'] . '</td>';
+                            echo '<td>' . $user['age'] . '</td>';
+                            echo '<td>' . $user['email'] . '</td>';
+                            echo '<td> 
+                            <a href="/edit?ide=' . $user['id'] . '>">Edit user</a>
+                            <form method="post" action="users">
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="user_id" value="' . $user['id'] . '">
+                                <input type="submit" value="Delete">
+                            </form>
+                            </td>';
+                        echo '</tr>';
+                }
+            ?
+        </table>
