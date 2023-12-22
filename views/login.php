@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     body {
       font-family: 'Open Sans', sans-serif;
-      background-image: url(https://img.freepik.com/free-vector/gradient-black-backgrounds-with-golden-frames_23-2149150610.jpg?w=1380&t=st=1703152361~exp=1703152961~hmac=0e0ec023e69fdc2c4a1e1273d2fe1183cf4e3f2fc16d7f7693d2fd4c6a891924);
+      background-image: url(https://img.freepik.com/free-vector/gradient-black-backgrounds-with-golden-frames_23-2149150610.jpg);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: 100% 100%;

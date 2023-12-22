@@ -8,16 +8,12 @@
         table 
         {
             font-family: arial, sans-serif;
-            border-collapse: collapse;
             width: 100%;
-            border-color: #96D4D4;
-            border-radius:10px;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
             padding-left: 10px;
-            padding-right: 10px;
-            
+            padding-right: 10px;   
         }
         td, th 
         {
@@ -67,16 +63,62 @@
 			}
 		}
 	}
+    .links{
+        display:flex;
+        justify-self: center;
+        justify-content:center;
+        margin-top:20px;
+        font-size:18px;
+        
+    }
+    .login_a{
+        padding:10px;
+        transition-duration: 0.4s;
+        color:blue; 
+        text-decoration: none;
+        margin-right:50px; 
+        border: 2px solid #008CBA;
+        border-radius:10px;
+    }
+    .login_a:hover {background-color: #008CBA;color:white;}
+    .create_a{
+        padding:10px;
+        transition-duration: 0.4s;
+        border: 2px solid #008CBA;
+        border-radius:10px;
+        color:blue;
+        text-decoration: none;
+    }
+    .create_a:hover {background-color: #008CBA;color:white;}
+
+    .delelete_st
+    {
+        background: white;
+        border: 2px solid #008CBA;
+        color:blue; 
+        border-radius:10px;
+        padding:5px;
+    }
+    .delelete_st:hover{background-color: #008CBA;color:white;}
+    .link_user{
+        font-size:15px;
+        text-decoration: none;
+        padding-right:30px;
+        padding-left:5px;
+        color:blue;
+    }
+    .link_user:active{color:red;}
         </style>
-<!---------------------------- Table ---------------------------->
+<!---------------------------------------- Table ---------------------------------------->
+          
+        <table>
         <h1>Table</h1>
-            <?php
+        <?php
                 require_once __DIR__ . '\..\controller/UserController.php';
-                $userController = new controller\UserController();
+                $userController = new \controller\UserController();
                 $users = $userController->getAllUsers();
                 echo $users;
-            ?>
-        <table>
+        ?>
             <tr class="table-header">
                 <th>#ID</th>
                 <th>First name</th>
@@ -96,21 +138,23 @@
                             echo '<td>' . $user['age'] . '</td>';
                             echo '<td>' . $user['email'] . '</td>';
                             echo '<td> 
-                            <a href="/edit?ide=' . $user['id'] . '>">Edit user</a>
+                            
                             <form method="post" action="users">
+                            <a class="link_user" href="/edit?ide=' . $user['id'] . '>">Edit</a>
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="user_id" value="' . $user['id'] . '">
-                                <input type="submit" value="Delete">
+                                <input class="delelete_st" type="submit" value="Delete">
                             </form>
                             </td>';
                         echo'</tr>';
                 }
             ?>
         </table>
-
-
-        <a href="/create">Create user </a>
-            <a href="/logout">Logout</a>
+<!---------------------------------------- Links ---------------------------------------->
+        <div class="links">
+            <a class="login_a" href="/logout">Logout</a>
+            <a class="create_a" href="/create">Create user </a>
+        </div>
     </body>
 </html>
 
